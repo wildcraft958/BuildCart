@@ -2,7 +2,7 @@ import asyncHandler from '../middleware/asyncHandler.js';
 import Order from '../models/orderModel.js';
 import Product from '../models/productModel.js';
 import { calcPrices } from '../utils/calcPrices.js';
-// import { verifyPayPalPayment, checkIfNewTransaction } from '../utils/paypal.js'; // REMOVED
+
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -81,9 +81,6 @@ const getOrderById = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Update order to paid
-// @route   PUT /api/orders/:id/pay
-// @access  Private
 
 // @desc    Update order to delivered
 // @route   GET /api/orders/:id/deliver
