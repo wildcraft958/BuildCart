@@ -89,14 +89,15 @@ const CartScreen = () => {
         <Card>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items
-              </h2>
-              $
-              {cartItems
-                .reduce((acc, item) => acc + item.qty * item.price, 0)
-                .toFixed(2)}
+              <h2>Order Summary</h2>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+                {cartItems.reduce((acc, item) => acc + item.qty, 0)} {cartItems.reduce((acc, item) => acc + item.qty, 0) === 1 ? 'item' : 'items'} in cart
+              </p>
+              <h3 style={{ color: 'var(--accent)', marginBottom: '0' }}>
+                ${cartItems
+                  .reduce((acc, item) => acc + item.qty * item.price, 0)
+                  .toFixed(2)}
+              </h3>
             </ListGroup.Item>
             <ListGroup.Item>
               <Button

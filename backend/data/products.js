@@ -10,6 +10,11 @@ const products = [
         countInStock: 15,
         rating: 4.5,
         numReviews: 128,
+        reviews: [
+            { name: 'John Doe', rating: 5, comment: 'Amazing sound quality! The noise cancellation is top-notch.' },
+            { name: 'Jane Smith', rating: 4, comment: 'Very comfortable for long listening sessions. Battery lasts forever!' },
+            { name: 'Mike Wilson', rating: 5, comment: 'Best headphones I have ever owned. Worth every penny.' },
+        ],
     },
     {
         name: 'Smart Watch Pro',
@@ -22,6 +27,11 @@ const products = [
         countInStock: 8,
         rating: 4.7,
         numReviews: 256,
+        reviews: [
+            { name: 'Mike Johnson', rating: 5, comment: 'Best fitness tracker I have ever owned. Accurate readings!' },
+            { name: 'Sarah Williams', rating: 5, comment: 'Love the sleep tracking feature. Display is gorgeous.' },
+            { name: 'Emily Chen', rating: 4, comment: 'Great battery life and beautiful design.' },
+        ],
     },
     {
         name: 'Portable Power Bank 20000mAh',
@@ -34,6 +44,11 @@ const products = [
         countInStock: 25,
         rating: 4.3,
         numReviews: 89,
+        reviews: [
+            { name: 'Tom Brown', rating: 4, comment: 'Charges my phone multiple times. Great for travel.' },
+            { name: 'Lisa Park', rating: 5, comment: 'Compact and powerful. LED display is very useful.' },
+            { name: 'David Lee', rating: 4, comment: 'Fast charging works great with my devices.' },
+        ],
     },
     {
         name: 'USB-C Hub Adapter 7-in-1',
@@ -46,6 +61,11 @@ const products = [
         countInStock: 20,
         rating: 4.4,
         numReviews: 67,
+        reviews: [
+            { name: 'Emily Davis', rating: 5, comment: 'Works perfectly with my MacBook. All ports work great!' },
+            { name: 'Chris Martin', rating: 4, comment: 'Solid build quality. HDMI output is crisp.' },
+            { name: 'Amanda White', rating: 4, comment: 'Great value for a 7-in-1 hub.' },
+        ],
     },
     {
         name: 'LED Desk Lamp with Wireless Charger',
@@ -58,6 +78,11 @@ const products = [
         countInStock: 12,
         rating: 4.6,
         numReviews: 45,
+        reviews: [
+            { name: 'Chris Martin', rating: 5, comment: 'Great lamp! Love the wireless charging feature.' },
+            { name: 'Rachel Green', rating: 4, comment: 'Perfect for my desk setup. Very functional.' },
+            { name: 'James Taylor', rating: 5, comment: 'The adjustable brightness is a game changer.' },
+        ],
     },
     {
         name: 'Mechanical Gaming Keyboard',
@@ -70,6 +95,181 @@ const products = [
         countInStock: 10,
         rating: 4.8,
         numReviews: 312,
+        reviews: [
+            { name: 'Alex Turner', rating: 5, comment: 'Best keyboard for gaming. The switches feel incredible!' },
+            { name: 'Lisa Chen', rating: 5, comment: 'RGB lighting is beautiful. Build quality is premium.' },
+            { name: 'Ryan Scott', rating: 4, comment: 'Great typing experience. Hot-swap feature is amazing.' },
+        ],
+    },
+    {
+        name: 'Wireless Gaming Mouse',
+        image: '/images/mouse.jpg',
+        description:
+            'Ultra-lightweight wireless gaming mouse with 25K DPI sensor, 70-hour battery life, and customizable RGB lighting. Features 6 programmable buttons.',
+        brand: 'GameForce',
+        category: 'Electronics',
+        price: 69.99,
+        countInStock: 18,
+        rating: 4.6,
+        numReviews: 189,
+        reviews: [
+            { name: 'David Park', rating: 5, comment: 'Super lightweight and responsive. Perfect for FPS games.' },
+            { name: 'Kevin Hart', rating: 4, comment: 'Great sensor accuracy. Battery lasts weeks.' },
+            { name: 'Michelle Kim', rating: 5, comment: 'Best gaming mouse I have used. No lag at all.' },
+        ],
+    },
+    {
+        name: 'Noise Cancelling Earbuds',
+        image: '/images/earbuds.jpg',
+        description:
+            'True wireless earbuds with active noise cancellation, transparency mode, and 8-hour battery life. IPX4 water resistant with premium sound quality.',
+        brand: 'AudioTech',
+        category: 'Electronics',
+        price: 149.99,
+        countInStock: 22,
+        rating: 4.4,
+        numReviews: 203,
+        reviews: [
+            { name: 'Rachel Green', rating: 4, comment: 'Great sound quality. ANC works well on commutes.' },
+            { name: 'Tyler Johnson', rating: 5, comment: 'Comfortable fit and excellent bass response.' },
+            { name: 'Nicole Adams', rating: 4, comment: 'Perfect for workouts. Water resistance is a plus.' },
+        ],
+    },
+    {
+        name: '4K Webcam Pro',
+        image: '/images/webcam.jpg',
+        description:
+            '4K Ultra HD webcam with auto-focus, built-in ring light, and noise-cancelling microphone. Perfect for streaming, video calls, and content creation.',
+        brand: 'StreamTech',
+        category: 'Electronics',
+        price: 89.99,
+        countInStock: 14,
+        rating: 4.5,
+        numReviews: 156,
+        reviews: [
+            { name: 'James Wilson', rating: 5, comment: 'Crystal clear video quality. Great for Zoom meetings!' },
+            { name: 'Patricia Moore', rating: 4, comment: 'Ring light is a nice touch. Auto-focus is fast.' },
+            { name: 'Brian Murphy', rating: 5, comment: 'Perfect for streaming. My viewers love the quality.' },
+        ],
+    },
+    {
+        name: 'Ergonomic Office Chair',
+        image: '/images/chair.jpg',
+        description:
+            'Premium ergonomic office chair with lumbar support, adjustable armrests, and breathable mesh back. Supports up to 300 lbs with smooth-rolling casters.',
+        brand: 'ComfortZone',
+        category: 'Home',
+        price: 299.99,
+        countInStock: 6,
+        rating: 4.7,
+        numReviews: 89,
+        reviews: [
+            { name: 'Patricia Moore', rating: 5, comment: 'My back pain is gone! Best investment for WFH setup.' },
+            { name: 'John Stevens', rating: 5, comment: 'Super comfortable for 8+ hour work days.' },
+            { name: 'Amanda Lee', rating: 4, comment: 'Great lumbar support. Assembly was easy.' },
+        ],
+    },
+    {
+        name: 'Portable Bluetooth Speaker',
+        image: '/images/speaker.jpg',
+        description:
+            'Waterproof portable speaker with 360-degree sound, 24-hour battery life, and built-in power bank. Perfect for outdoor adventures and pool parties.',
+        brand: 'AudioTech',
+        category: 'Electronics',
+        price: 59.99,
+        countInStock: 30,
+        rating: 4.3,
+        numReviews: 178,
+        reviews: [
+            { name: 'Kevin Hart', rating: 4, comment: 'Loud and clear sound. Battery lasts all day!' },
+            { name: 'Sarah Miller', rating: 5, comment: 'Took it to the beach. Waterproofing works great!' },
+            { name: 'Chris Brown', rating: 4, comment: 'Great bass for its size. Very portable.' },
+        ],
+    },
+    {
+        name: 'Smart Home Hub',
+        image: '/images/smarthub.jpg',
+        description:
+            'Central smart home controller compatible with Alexa, Google Home, and HomeKit. Control lights, thermostats, and security from one app.',
+        brand: 'SmartLife',
+        category: 'Home',
+        price: 79.99,
+        countInStock: 16,
+        rating: 4.2,
+        numReviews: 134,
+        reviews: [
+            { name: 'Amanda Lee', rating: 4, comment: 'Easy setup. Works with all my smart devices.' },
+            { name: 'Robert Davis', rating: 5, comment: 'Finally unified all my smart home devices!' },
+            { name: 'Jennifer White', rating: 4, comment: 'Good compatibility. App is user-friendly.' },
+        ],
+    },
+    {
+        name: 'Laptop Stand Adjustable',
+        image: '/images/laptopstand.jpg',
+        description:
+            'Aluminum laptop stand with adjustable height and angle. Improves posture and keeps laptop cool. Compatible with laptops 10-17 inches.',
+        brand: 'ErgoDesk',
+        category: 'Accessories',
+        price: 34.99,
+        countInStock: 40,
+        rating: 4.5,
+        numReviews: 267,
+        reviews: [
+            { name: 'Brian Murphy', rating: 5, comment: 'Sturdy build. Really helps with neck strain.' },
+            { name: 'Laura Wilson', rating: 4, comment: 'Great value. Laptop stays cool.' },
+            { name: 'Mark Thompson', rating: 5, comment: 'Perfect height adjustment. Very stable.' },
+        ],
+    },
+    {
+        name: 'Wireless Charging Pad',
+        image: '/images/chargingpad.jpg',
+        description:
+            'Fast wireless charging pad compatible with all Qi-enabled devices. Features anti-slip surface and LED indicator. Supports up to 15W fast charging.',
+        brand: 'PowerMax',
+        category: 'Accessories',
+        price: 24.99,
+        countInStock: 50,
+        rating: 4.1,
+        numReviews: 98,
+        reviews: [
+            { name: 'Nicole Adams', rating: 4, comment: 'Works great with my iPhone. Clean and minimal design.' },
+            { name: 'Steve Rogers', rating: 5, comment: 'Fast charging works as advertised. No issues.' },
+            { name: 'Diana Prince', rating: 4, comment: 'Sleek design. LED indicator is subtle.' },
+        ],
+    },
+    {
+        name: 'Gaming Headset 7.1 Surround',
+        image: '/images/gamingheadset.jpg',
+        description:
+            '7.1 virtual surround sound gaming headset with retractable microphone, memory foam ear cushions, and RGB lighting. Compatible with PC, PS5, and Xbox.',
+        brand: 'GameForce',
+        category: 'Electronics',
+        price: 89.99,
+        countInStock: 13,
+        rating: 4.6,
+        numReviews: 245,
+        reviews: [
+            { name: 'Ryan Scott', rating: 5, comment: 'Immersive sound for gaming. Mic quality is excellent!' },
+            { name: 'Michelle Kim', rating: 4, comment: 'Very comfortable even for long gaming sessions.' },
+            { name: 'Alex Turner', rating: 5, comment: 'Surround sound is incredible. Best headset I have owned.' },
+        ],
+    },
+    {
+        name: 'Smart LED Light Strip',
+        image: '/images/ledstrip.jpg',
+        description:
+            '16 million color LED light strip with app control and music sync. 32 feet length with easy adhesive backing. Works with Alexa and Google Home.',
+        brand: 'LightWise',
+        category: 'Home',
+        price: 29.99,
+        countInStock: 35,
+        rating: 4.4,
+        numReviews: 312,
+        reviews: [
+            { name: 'Tyler Johnson', rating: 5, comment: 'Amazing ambiance! Easy to install and the app works great.' },
+            { name: 'Jessica Moore', rating: 4, comment: 'Music sync feature is so cool. Great for parties.' },
+            { name: 'Nathan Drake', rating: 5, comment: 'Transformed my gaming room. Love the custom colors.' },
+        ],
     },
 ];
 

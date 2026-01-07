@@ -21,9 +21,24 @@ const importData = async () => {
         const createdUsers = await User.insertMany(users);
 
         const adminUser = createdUsers[0]._id;
+        const sampleUser = createdUsers[1]._id;
+        const sampleUser2 = createdUsers[2]._id;
+
+        // Assign user IDs to reviews in round-robin fashion
+        const userIds = [adminUser, sampleUser, sampleUser2];
 
         const sampleProducts = products.map((product) => {
-            return { ...product, user: adminUser };
+            const productWithUser = { ...product, user: adminUser };
+
+            // Add user IDs to each review
+            if (productWithUser.reviews && productWithUser.reviews.length > 0) {
+                productWithUser.reviews = productWithUser.reviews.map((review, index) => ({
+                    ...review,
+                    user: userIds[index % userIds.length],
+                }));
+            }
+
+            return productWithUser;
         });
 
         await Product.insertMany(sampleProducts);
