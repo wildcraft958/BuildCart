@@ -29,15 +29,13 @@ const getProducts = asyncHandler(async (req, res) => {
 // @route   GET /api/products/:id
 // @access  Public
 const getProductById = asyncHandler(async (req, res) => {
-  // Check for valid ObjectId
-  // middleware. See README for more info.
+  // Validate ObjectId
 
   const product = await Product.findById(req.params.id);
   if (product) {
     return res.json(product);
   } else {
-    // Handle case where ObjectId is valid but product doesn't exist
-    // i.e. product may be null
+    // Product not found
     res.status(404);
     throw new Error('Product not found');
   }

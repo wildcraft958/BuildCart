@@ -59,15 +59,7 @@ npm install
 
 ### Database Setup
 
-Import sample data (optional):
-
-```bash
-# Import sample products and users
-npm run data:import
-
-# Destroy all data
-npm run data:destroy
-```
+Ensure your MongoDB instance is running and connected. The application will automatically create collections as needed.
 
 ## Running the Application
 
@@ -133,12 +125,8 @@ This design is intentional for educational purposes and can be extended with pay
 ## Admin Access
 
 To create an admin user, you can either:
-1. Use the seeder script which creates a default admin user
-2. Manually update a user document in MongoDB by setting `isAdmin: true`
-
-Default admin credentials (if using seeder):
-- Email: admin@email.com
-- Password: 123456
+1. Register a new user via the application
+2. Manually update the user document in MongoDB: set `isAdmin: true`
 
 **⚠️ Important**: Change default credentials in production!
 

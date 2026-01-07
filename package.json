@@ -9,10 +9,8 @@
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "generate-toc": "markdown-toc -i readme.md"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "BuildCart Team",
   "license": "MIT",
@@ -29,7 +27,6 @@
   "devDependencies": {
     "@types/express": "^4.17.17",
     "concurrently": "^7.6.0",
-    "markdown-toc": "^1.2.0",
     "nodemon": "^2.0.21"
   }
 }
