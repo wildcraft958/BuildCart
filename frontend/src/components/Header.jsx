@@ -21,7 +21,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      // NOTE: here we need to reset cart state for when a user logs out so the next
+      // Reset cart state on logout
       // user doesn't inherit the previous users cart and shipping
       dispatch(resetCart());
       navigate('/login');
