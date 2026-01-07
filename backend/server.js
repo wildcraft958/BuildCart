@@ -9,6 +9,8 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './config/swagger.js';
 
 const port = process.env.PORT || 5000;
 
@@ -19,6 +21,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// Swagger API Documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'BuildCart API Documentation',
+}));
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
@@ -37,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
   app.get('/', (req, res) => {
-    res.send('API is running....');
+    res.send('API is running.... Visit <a href="/api-docs">/api-docs</a> for API documentation');
   });
 }
 
