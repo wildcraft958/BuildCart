@@ -59,8 +59,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
 body {
@@ -70,6 +72,12 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Gradient Background */
@@ -88,9 +96,9 @@ body::before {
 }
 
 main {
-  min-height: 80vh;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  flex: 1 0 auto;
 }
 
 /* Links */
@@ -188,11 +196,16 @@ h6 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  background: var(--bg-glass);
 }
 
 .navbar-brand img {
   height: 32px;
   width: auto;
+  border-radius: 8px;
 }
 
 .nav-link {
@@ -295,6 +308,50 @@ h6 {
   color: var(--text-secondary);
   font-weight: 500;
   margin-bottom: 0.5rem;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.divider span {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Google Auth Button */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-glass) !important;
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.google-btn:hover {
+  background: var(--bg-glass) !important;
+  border-color: var(--border-hover) !important;
+}
+
+.google-btn svg {
+  color: #ea4335;
 }
 
 .form-select {
@@ -673,6 +730,7 @@ footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-glass);
   color: var(--text-secondary);
+  flex-shrink: 0;
 }
 
 /* ===============================================

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaGoogle } from 'react-icons/fa';
 import Loader from '../components/Loader';
 import FormContainer from '../components/FormContainer';
 
@@ -41,6 +42,10 @@ const LoginScreen = () => {
     }
   };
 
+  const googleAuthHandler = () => {
+    toast.info('Google Sign-In coming soon!');
+  };
+
   return (
     <FormContainer>
       <h1>Sign In</h1>
@@ -66,12 +71,24 @@ const LoginScreen = () => {
           ></Form.Control>
         </Form.Group>
 
-        <Button disabled={isLoading} type='submit' variant='primary'>
+        <Button disabled={isLoading} type='submit' variant='primary' className='w-100'>
           Sign In
         </Button>
 
         {isLoading && <Loader />}
       </Form>
+
+      <div className='divider my-3'>
+        <span>or</span>
+      </div>
+
+      <Button
+        variant='outline-light'
+        className='w-100 google-btn'
+        onClick={googleAuthHandler}
+      >
+        <FaGoogle className='me-2' /> Continue with Google
+      </Button>
 
       <Row className='py-3'>
         <Col>
@@ -86,3 +103,4 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
+

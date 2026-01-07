@@ -1,163 +1,177 @@
 # BuildCart
 
-BuildCart is a full-featured e-commerce platform built with the MERN stack (MongoDB, Express, React, Node.js). It provides essential e-commerce functionality including user authentication, product management, shopping cart, order processing, and a comprehensive admin panel.
+A modern, full-featured e-commerce platform built with the MERN stack (MongoDB, Express, React, Node.js). Features a stunning dark theme with glassmorphism effects, comprehensive product management, and streamlined checkout process.
 
-## Features
+![Dark Theme](https://img.shields.io/badge/Theme-Dark-0a0a0f?style=flat-square)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat-square&logo=mongodb)
+
+## ✨ Features
 
 ### User Features
-- **User Authentication**: Secure registration and login with JWT-based authentication
-- **Product Browsing**: Browse products with pagination and search functionality
-- **Product Details**: View detailed product information including images, descriptions, and pricing
-- **Shopping Cart**: Add, update, and remove products from cart
-- **Order Placement**: Simple checkout process with direct order placement
-- **Order History**: View past orders in user profile
-- **User Profile**: Manage account information and view order history
+- 🔐 **Secure Authentication** - JWT-based login/registration with cookie storage
+- 🛍️ **Product Browsing** - Browse 16+ products with pagination and search
+- 🛒 **Shopping Cart** - Add, update, and remove items
+- 📦 **Order Placement** - Streamlined Cash on Delivery checkout
+- 👤 **User Profile** - Manage account and view order history
+- ⭐ **Product Reviews** - Rate and review products
 
 ### Admin Features
-- **Product Management**: Full CRUD operations for products
-- **Order Management**: View and manage all customer orders
-- **User Management**: View and manage user accounts
-- **Mark Orders as Delivered**: Update order delivery status
+- 📊 **Dashboard** - Manage products, orders, and users
+- 📝 **Product CRUD** - Full product management with image upload
+- 🚚 **Order Management** - View and mark orders as delivered
+- 👥 **User Management** - View and manage user accounts
 
-## Technology Stack
+### Design & UX
+- 🌙 **Dark Theme** - Modern dark UI with glassmorphism effects
+- 🎨 **Inter Font** - Clean, professional typography
+- 📱 **Responsive** - Works on all devices
+- ✨ **Smooth Animations** - Hover effects and transitions
 
-- **Frontend**: React 18, Redux Toolkit, React Bootstrap, React Router v6
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT (JSON Web Tokens)
-- **File Upload**: Multer for product image uploads
+## 🛠️ Technology Stack
 
-## Installation & Setup
+| Layer | Technologies |
+|-------|-------------|
+| **Frontend** | React 18, Redux Toolkit, React Bootstrap, React Router v6 |
+| **Backend** | Node.js, Express.js, Swagger API Docs |
+| **Database** | MongoDB with Mongoose ODM |
+| **Auth** | JWT (JSON Web Tokens) with HTTP-only cookies |
+| **Styling** | Custom CSS with CSS Variables, Glassmorphism |
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB Atlas account or local MongoDB installation
-- npm or yarn package manager
+- Node.js (v18+)
+- MongoDB Atlas account or local MongoDB
+- npm or yarn
 
-### Environment Variables
+### 1. Clone & Install
 
-Create a `.env` file in the root directory based on `.env.example`:
+```bash
+git clone <your-repo-url>
+cd BuildCart
+
+# Install all dependencies
+npm install
+cd frontend && npm install && cd ..
+```
+
+### 2. Environment Setup
+
+Create a `.env` file in the root directory:
 
 ```env
 NODE_ENV=development
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/buildcart
+JWT_SECRET=your_super_secret_jwt_key_here
 PAGINATION_LIMIT=8
 ```
 
-### Install Dependencies
+### 3. Seed Database
 
 ```bash
-# Install backend dependencies
-npm install
+# Import sample data (16 products + 3 users)
+npm run data:import
 
-# Install frontend dependencies
-cd frontend
-npm install
+# To clear database
+npm run data:destroy
 ```
 
-### Database Setup
-
-Ensure your MongoDB instance is running and connected. The application will automatically create collections as needed.
-
-## Running the Application
-
-### Development Mode
+### 4. Run Application
 
 ```bash
-# Run backend and frontend concurrently
+# Development (frontend + backend)
 npm run dev
-
-# Run backend only
-npm run server
-
-# Run frontend only
-npm run client
 ```
 
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
+**Access Points:**
+- 🌐 Frontend: http://localhost:3000
+- 🔌 API: http://localhost:5000
+- 📚 API Docs: http://localhost:5000/api-docs
 
-### Production Build
+## 👤 Demo Accounts
 
-```bash
-# Build frontend for production
-npm run build
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@buildcart.com | admin123 |
+| User | john@example.com | password123 |
+| User | jane@example.com | password123 |
 
-# Start production server
-npm start
-```
+## 📡 API Documentation
 
-## API Endpoints
+Interactive Swagger documentation available at `/api-docs` when running the server.
 
-### Products
-- `GET /api/products` - Get all products (with pagination)
-- `GET /api/products/:id` - Get product by ID
-- `POST /api/products` - Create product (Admin)
-- `PUT /api/products/:id` - Update product (Admin)
-- `DELETE /api/products/:id` - Delete product (Admin)
+### Key Endpoints
 
-### Users
-- `POST /api/users/register` - Register new user
-- `POST /api/users/login` - Login user
-- `POST /api/users/logout` - Logout user
-- `GET /api/users/profile` - Get user profile
-- `PUT /api/users/profile` - Update user profile
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/users/auth` | Login |
+| `POST` | `/api/users` | Register |
+| `GET` | `/api/products` | Get products (paginated) |
+| `GET` | `/api/products/:id` | Get single product |
+| `POST` | `/api/orders` | Create order |
+| `GET` | `/api/orders/mine` | Get user's orders |
 
-### Orders
-- `POST /api/orders` - Create new order
-- `GET /api/orders/myorders` - Get logged in user orders
-- `GET /api/orders/:id` - Get order by ID
-- `GET /api/orders` - Get all orders (Admin)
-- `PUT /api/orders/:id/deliver` - Mark order as delivered (Admin)
-
-## Order Processing
-
-BuildCart uses a simplified order processing system:
-- **Payment Method**: All orders are processed as "Cash on Delivery"
-- **No Payment Gateway**: No integration with payment processors like PayPal or Stripe
-- **Direct Checkout**: Users proceed directly from cart to order placement
-
-This design is intentional for educational purposes and can be extended with payment gateway integration if needed.
-
-## Admin Access
-
-To create an admin user, you can either:
-1. Register a new user via the application
-2. Manually update the user document in MongoDB: set `isAdmin: true`
-
-**⚠️ Important**: Change default credentials in production!
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 BuildCart/
 ├── backend/
-│   ├── config/          # Database configuration
-│   ├── controllers/     # Request handlers
-│   ├── data/            # Sample data for seeding
-│   ├── middleware/      # Custom middleware
-│   ├── models/          # Mongoose models
-│   ├── routes/          # API routes
-│   ├── utils/           # Utility functions
-│   └── server.js        # Express server setup
+│   ├── config/          # DB & Swagger config
+│   ├── controllers/     # Route handlers
+│   ├── data/           # Seed data (products, users)
+│   ├── middleware/     # Auth & error handling
+│   ├── models/         # Mongoose schemas
+│   ├── routes/         # API routes with Swagger docs
+│   └── server.js       # Express entry point
 ├── frontend/
-│   ├── public/          # Static files
+│   ├── public/         # Static assets & product images
 │   └── src/
-│       ├── components/  # Reusable React components
-│       ├── screens/     # Page components
-│       ├── slices/      # Redux slices
-│       └── utils/       # Frontend utilities
-└── uploads/             # Product image uploads
-
+│       ├── assets/     # Styles (dark theme CSS)
+│       ├── components/ # Reusable components
+│       ├── screens/    # Page components
+│       └── slices/     # Redux state management
+└── uploads/            # User uploaded images
 ```
 
-## License
+## 🎨 Theme Customization
 
-MIT
+The dark theme uses CSS custom properties in `frontend/src/assets/styles/index.css`:
 
-## Author
+```css
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --accent: #6366f1;
+  --text-primary: #ffffff;
+  /* ... more variables */
+}
+```
 
-BuildCart Team
+## 📝 Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Run frontend & backend |
+| `npm run server` | Run backend only |
+| `npm run client` | Run frontend only |
+| `npm run data:import` | Seed database |
+| `npm run data:destroy` | Clear database |
+| `npm run build` | Production build |
+
+## 🔒 Security Notes
+
+- JWT tokens stored in HTTP-only cookies
+- Passwords hashed with bcrypt
+- Admin routes protected with middleware
+- No sensitive data in client-side storage
+
+## 📄 License
+
+MIT License - feel free to use for personal or commercial projects.
+
+---
+
+Built with ❤️ using the MERN Stack
